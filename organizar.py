@@ -13,9 +13,11 @@ for folder in folders.keys():
 for filename in os.listdir():
     if not os.path.isfile(filename):
         continue
+
+    if filename == "organizar.py":
+        continue
     
     name, ext = os.path.splitext(filename)
-
     
     for folder, extension in folders.items():
         folder_path = os.path.join(folder, filename)
@@ -25,7 +27,6 @@ for filename in os.listdir():
             new_path = os.path.join(folder, new_filename)
             os.rename(folder_path, new_path)
             print(f"Renomeado: {folder_path} → {new_path}")
-
 
     if ext in folders.values():
         target_folder = [key for key, value in folders.items() if value == ext][0]
