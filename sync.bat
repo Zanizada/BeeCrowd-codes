@@ -35,7 +35,7 @@ set DELETED=%errorlevel%
 if %NEWFILES% neq 1 (
     echo 📂 Novos arquivos detectados! Adicionando ao repositório...
     git add .
-    git commit -m "New code listed with auto-sync in local repository"
+    git commit -m "New item listed in local repository"
     git push origin main
     echo ✅ Novos arquivos sincronizados!
     exit /b 0
@@ -44,7 +44,7 @@ if %NEWFILES% neq 1 (
 if %MODIFIED% neq 0 (
     echo ✏️ Arquivos modificados detectados! Salvando mudanças...
     git add .
-    git commit -m "Auto-sync: alterações em arquivos existentes"
+    git commit -m "File modified in local repository"
     git push origin main
     echo ✅ Arquivos modificados sincronizados!
     exit /b 0
@@ -53,7 +53,7 @@ if %MODIFIED% neq 0 (
 if %DELETED% neq 1 (
     echo 🗑️ Arquivos deletados detectados! Atualizando repositório...
     git add .
-    git commit -m "Auto-sync: arquivos deletados"
+    git commit -m "File deleted in local repository"
     git push origin main
     echo ✅ Exclusões sincronizadas!
     exit /b 0
