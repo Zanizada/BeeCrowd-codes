@@ -1,17 +1,18 @@
 @echo off
-cd /d "C:\Users\rafae\OneDrive\BeeCrowd-codes"  REM Caminho do seu repositório local
+cd /d C:\Users\rafae\OneDrive\BeeCrowd-codes
 
-echo Atualizando repositório...
-git pull origin main
+:: Verifica se há arquivos novos ou modificados
+git fetch origin main
+for /f %%i in ('git rev-parse HEAD') do set LOCAL=%%i
+for /f %%i in ('git rev-parse origin/main') do set REMOTE=%%i
 
-echo Adicionando novos arquivos...
-git add .
-
-echo Criando commit...
-git commit -m "Atualização automática dos códigos"
-
-echo Enviando para o GitHub...
-git push origin main
-
-echo Sincronização concluída!
-pause
+:: Checa se há modificações no repositório
+git status --porcelain | findstr /R "^\?\? ^ M" > nul
+if %errorlevel% neq 0 (
+    git pull origin main
+    git add .
+    git commit -m "Auto-sync: atualização automática"
+    git push origin main
+) else (
+    exit /b 0
+)
