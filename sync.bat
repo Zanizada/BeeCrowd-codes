@@ -35,7 +35,7 @@ set DELETED=%errorlevel%
 if %NEWFILES% neq 1 (
     echo 📂 Novos arquivos detectados! Adicionando ao repositório...
     git add .
-    git commit -m "Auto-sync: novos arquivos adicionados"
+    git commit -m "New code listed with auto-sync in local repository"
     git push origin main
     echo ✅ Novos arquivos sincronizados!
     exit /b 0
