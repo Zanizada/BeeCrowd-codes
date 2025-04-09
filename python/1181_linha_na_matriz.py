@@ -1,4 +1,4 @@
-C = int(input())
+L = int(input())
 T = input().strip()
 
 matriz = []
@@ -11,11 +11,10 @@ for _ in range(12):
         linha.append(valor)
     matriz.append(linha)
 
-soma = 0
-for i in range(12):
-    soma += matriz[i][C]
+linha_escolhida = matriz[L]
+resultado = sum(linha_escolhida)
 
 if T == "M":
-    soma /= 12
+    resultado /= 12
 
-print(f"{soma:.1f}")
+print(f"{resultado:.1f}")
