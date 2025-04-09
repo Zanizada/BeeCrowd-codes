@@ -1,10 +1,10 @@
 N = int(input())
+X = list(map(int, input().split()))
 
-for _ in range(N):
-    X = [int(input().split())]
+X = X[:N]
 
-    menor = min(X)
-    posicao = X.index(menor) + 1
-    
-print(f'Menor Valor: {menor}')
+menor = min(X)
+posicao = X.index(menor)
+
+print(f'Menor valor: {menor}')
 print(f'Posicao: {posicao}')
