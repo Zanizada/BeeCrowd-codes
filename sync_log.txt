@@ -5083,3 +5083,6 @@ From https://github.com/Zanizada/BeeCrowd-codes
  * branch            main       -> FETCH_HEAD
 🔍 Verificando mudanças locais... 
 ✏️ Arquivos modificados detectados! Salvando mudanças... 
+warning: in the working copy of 'sync_log.txt', LF will be replaced by CRLF the next time Git touches it
+[main 8cdc103] File modified in local repository
+ 1 file changed, 29 insertions(+)
