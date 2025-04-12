@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class area_do_circulo_1002 {
+public class soma_simples_1003 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
