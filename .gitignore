@@ -19,7 +19,8 @@ __pycache__/
 *.depend
 
 # BlueJ
-.bluej
+*.bluej
+package.bluej
 
 # IntelliJ IDEA
 .idea/
