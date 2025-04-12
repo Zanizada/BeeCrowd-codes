@@ -7,13 +7,26 @@ __pycache__/
 
 # Java
 *.class
+*.ctxt
 
 # C
 *.o
 *.out
 *.exe
 
+# Code::Blocks
+*.layout
+*.depend
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
 # Sistema
 .DS_Store
 Thumbs.db
 sync_log.txt
+
+# Ignora todos os READMEs exceto o da raiz
+**/README
+!/README
