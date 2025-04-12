@@ -18,6 +18,9 @@ __pycache__/
 *.layout
 *.depend
 
+# BlueJ
+.bluej
+
 # IntelliJ IDEA
 .idea/
 *.iml
