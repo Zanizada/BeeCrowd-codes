@@ -12,7 +12,7 @@ quantidade = 0
 
 for i in range(12):
     for j in range(12):
-        if j > i and i + j <= 10:
+        if j < i and i + j >= 10:
             soma += matriz[i][j]
             quantidade += 1
 
