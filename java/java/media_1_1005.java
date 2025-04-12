@@ -8,10 +8,10 @@ public class media_1_1005 {
         double B = sc.nextDouble();
         double PA = 3.5;
         double PB = 7.5;
+        double soma = (A * PA) + (B * PB);
+        double media = soma / (PA + PB);
         
-        int PROD = A * B;
-
-        System.out.printf("PROD = %d%n", PROD);
+        System.out.printf("MEDIA = %.5f%n", media);
 
         sc.close();
     }
