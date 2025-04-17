@@ -12,11 +12,14 @@ __pycache__/
 # C
 *.o
 *.out
+*.obj
 *.exe
 
 # Code::Blocks
-*.layout
+*.cbp
 *.depend
+*.layout
+*.workspace
 
 # BlueJ
 *.bluej
@@ -34,3 +37,7 @@ sync_log.txt
 # Ignora todos os READMEs exceto o da raiz
 **/README
 !/README
+
+# Ignora pastas de Build
+bin/
+build/
