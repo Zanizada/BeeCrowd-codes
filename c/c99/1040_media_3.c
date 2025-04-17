@@ -16,7 +16,10 @@ int main() {
         printf("Nota do exame: %.1f\n", exame);
         media_final = (exame+media)/2;
         if (media_final >= 5.0) {
-            printf("")
+            printf("Aluno aprovado.\n");
+        } else {
+            printf("Aluno reprovado.\n");
         }
+        printf("Media final: %.1f\n");
     }
 }
