@@ -9,6 +9,6 @@ int main() {
     PA = A * B;
     PB = C * D;
     diff = PA - PB;
-    printf("DIFERENCA = %d\n" diff);
+    printf("DIFERENCA = %d\n", diff);
     return 0;
 }
