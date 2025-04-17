@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
     int A, B, C, D, PA, PB, diff;
     scanf("%d", &A);
@@ -8,5 +9,6 @@ int main() {
     PA = A * B;
     PB = C * D;
     diff = PA - PB;
-    printf("DIFERENCA = %d\n" diff)
+    printf("DIFERENCA = %d\n" diff);
+    return 0;
 }
