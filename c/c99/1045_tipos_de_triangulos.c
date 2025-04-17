@@ -11,21 +11,22 @@ int main() {
 
     if (A >= B + C) {
         printf("NAO FORMA TRIANGULO\n");
-    }
-    else if (pow(A, 2) == pow(B, 2) + pow(C, 2)) {
-        printf("TRIANGULO RETANGULO\n");
-    }
-    else if (pow(A, 2) > pow(B, 2) + pow(C, 2)) {
-        printf("TRIANGULO OBTUSANGULO\n");
-    }
-    else if (pow(A, 2) < pow(B, 2) + pow(C, 2)) {
-        printf("TRIANGULO ACUTANGULO\n");
+    } else {
+        if (pow(A, 2) == pow(B, 2) + pow(C, 2)) {
+            printf("TRIANGULO RETANGULO\n");
+        } else if (pow(A, 2) > pow(B, 2) + pow(C, 2)) {
+            printf("TRIANGULO OBTUSANGULO\n");
+        } else {
+            printf("TRIANGULO ACUTANGULO\n");
+        }
+
+        if (A == B && B == C) {
+            printf("TRIANGULO EQUILATERO\n");
+        }
+        else if ((A == B && B != C) || (A == C && C == B) || (B == C && C != A)) {
+            printf("TRIANGULO ISOSCELES\n");
+        }
     }
 
-    if (A == B && B == C) {
-        printf("TRIANGULO EQUILATERO\n");
-    }
-    else if ((A == B && B != C) || (A == C && C == B) || (B == C && C != A)) {
-        printf("TRIANGULO ISOSCELES\n");
-    }
+    return 0;
 }
