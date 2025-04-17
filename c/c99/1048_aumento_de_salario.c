@@ -25,7 +25,9 @@ int main() {
         porcentagem = 4;
         ganho = reajuste - salario;
     }
-    printf("Novo Salario: %.2f\nReajuste ganho: %.2f\nEm percentual: %d %%\n", reajuste, ganho, porcentagem);
+    printf("Novo salario: %.2f\n", reajuste);
+    printf("Reajuste ganho: %.2f\n", ganho);
+    printf("Em percentual: %d %%\n", porcentagem);
 
     return 0;
 }
