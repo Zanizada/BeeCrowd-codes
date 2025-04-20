@@ -1,25 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int diaInicio, h1, m1, s1;
-    int diaFim, h2, m2, s2;
+    int dia_inicio, dia_fim;
+    int h1, m1, s1, h2, m2, s2;
+    int total_inicio, total_fim, duracao;
+    int dias, horas, minutos, segundos;
 
-    scanf("Dia %d", &diaInicio);
+    scanf("Dia %d", &dia_inicio);
     scanf("%d : %d : %d", &h1, &m1, &s1);
-    scanf("Dia %d", &diaFim);
+
+    scanf(" Dia %d", &dia_fim);
     scanf("%d : %d : %d", &h2, &m2, &s2);
 
-    int inicioSeg = s1 + m1 * 60 + h1 * 3600 + diaInicio * 86400;
-    int fimSeg = s2 + m2 * 60 + h2 * 3600 + diaFim * 86400;
+    total_inicio = s1 + m1 * 60 + h1 * 3600 + dia_inicio * 86400;
+    total_fim = s2 + m2 * 60 + h2 * 3600 + dia_fim * 86400;
 
-    int duracao = fimSeg - inicioSeg;
+    duracao = total_fim - total_inicio;
 
-    int dias = duracao / 86400;
+    dias = duracao / 86400;
     duracao %= 86400;
-    int horas = duracao / 3600;
+    horas = duracao / 3600;
     duracao %= 3600;
-    int minutos = duracao / 60;
-    int segundos = duracao % 60;
+    minutos = duracao / 60;
+    segundos = duracao % 60;
 
     printf("%d dia(s)\n", dias);
     printf("%d hora(s)\n", horas);
