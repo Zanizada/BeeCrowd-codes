@@ -7,8 +7,9 @@ int main() {
     for (int i = 0; i < N; i++) {
         scanf("%d", &A);
         if (A == 0) {
-                printf("NULL\n");
-        } else if (A % 2 == 0) {
+            printf("NULL\n");
+        }
+        if (A % 2 == 0) {
             if (A > 0) printf("EVEN POSITIVE\n");
             else if (A < 0) printf("EVEN NEGATIVE\n");
         } else
