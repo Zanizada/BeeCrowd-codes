@@ -1,9 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int N;
+    int N, X, in = 0, out = 0;
     scanf("%d", &N);
-    for ()
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &X);
+        if (10 <= X && X <= 20) {
+            in++;
+        } else {
+            out++;
+        }
+    }
 
-    return 0
+    printf("%d in\n", in);
+    printf("%d out\n", out);
+
+    return 0;
 }
