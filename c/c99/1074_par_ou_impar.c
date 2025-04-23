@@ -12,7 +12,11 @@ int main() {
         if (A % 2 == 0) {
             if (A > 0) printf("EVEN POSITIVE\n");
             else if (A < 0) printf("EVEN NEGATIVE\n");
-        } else
+
+        } else {
+            if (A > 0) printf("ODD POSITIVE\n");
+
+        }
     }
 
     return 0;
