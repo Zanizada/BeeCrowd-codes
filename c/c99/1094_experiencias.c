@@ -22,9 +22,7 @@ int main() {
     percentual_r = (ratos*100)/total;
     percentual_s = (sapos*100)/total;
 
-    int total;
-
-    printf("Total: %d cobaias\nTotal de coelhos: %d\nTotal de ratos: %d\nTotal de sapos: %d\nPercentual de coelhos: %.2f %%\nPercentual de ratos: %.2f %%\nPercentual de sapos: %.2f %%\n", total, coelhos, ratos, sapos, percentual_c, percentual_r, percentual_s);
+    printf("Total: %.0f cobaias\nTotal de coelhos: %d\nTotal de ratos: %d\nTotal de sapos: %d\nPercentual de coelhos: %.2f %%\nPercentual de ratos: %.2f %%\nPercentual de sapos: %.2f %%\n", total, coelhos, ratos, sapos, percentual_c, percentual_r, percentual_s);
 
     return 0;
 }
