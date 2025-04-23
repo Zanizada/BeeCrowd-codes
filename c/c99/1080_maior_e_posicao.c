@@ -1,23 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    int i, numeros[100];
-    for (i = 0; i < 100; i++) {
-        scanf("%d", &numeros[i]);
-    }
-    int maior = numeros[0], menor = numeros[0];
+    int i, numero, maior, posicao;
+    maior = -1;
+    posicao = 0;
 
-    for (i = 1; i < 100; i++) {
-        if (numeros[i] > maior) {
-            maior = numeros[i];
-        }
-        if (numeros[i] < menor) {
-            menor = numeros[i];
+    for (i = 1; i <= 100; i++) {
+        scanf("%d", &numero);
+        if (numero > maior) {
+            maior = numero;
+            posicao = i;
         }
     }
 
     printf("%d\n", maior);
-    printf("%d\n", menor);
+    printf("%d\n", posicao);
 
     return 0;
 }
