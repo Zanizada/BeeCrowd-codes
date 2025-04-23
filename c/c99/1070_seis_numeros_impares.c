@@ -1,10 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    int X;
+    int X, contador = 0;
     scanf("%d", &X);
-    for (int i = X; i < 6; i++) {
-        if (i % 2 != 0) printf("%d\n", i);
+
+    while (contador < 6) {
+        if (X % 2 != 0) printf("%d\n", X);
     }
     return 0;
 }
