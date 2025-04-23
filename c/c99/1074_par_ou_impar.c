@@ -15,7 +15,7 @@ int main() {
 
         } else {
             if (A > 0) printf("ODD POSITIVE\n");
-            else if (A < 0 printf("ODD NEGATIVE\n"));
+            else if (A < 0) printf("ODD NEGATIVE\n");
         }
     }
 
