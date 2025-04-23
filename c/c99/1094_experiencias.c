@@ -1,19 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int N, quantia, total = 0, coelhos = 0, ratos = 0, sapos = 0;
-    float percentual_c = 0, percentual_r = 0, percentual_s = 0;
-    char tipo[50];
+    int N, quantia, coelhos = 0, ratos = 0, sapos = 0;
+    float total = 0.0, percentual_c = 0.0, percentual_r = 0.0, percentual_s = 0.0;
+    char tipo;
     scanf("%d", &N);
 
     for (int i = 0; i < N; i++) {
-        scanf("%d %s", &quantia, &tipo[50]);
+        scanf("%d %s", &quantia, &tipo);
         total += quantia;
-        if (tipo[50] == "C") {
+        if (tipo = "C") {
             coelhos += quantia;
-        } else if (tipo[50] == "R") {
+        } else if (tipo = "R") {
             ratos += quantia;
-        } else if (tipo[50] == "S") {
+        } else if (tipo = "S") {
             sapos += quantia;
         }
     }
