@@ -9,7 +9,7 @@ while I <= 9:
 
     if contador == 3:
         I += 2
-        J += 5
+        J = 7
         contador = 0
 
     if I > 9:
