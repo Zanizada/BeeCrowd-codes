@@ -12,9 +12,6 @@ int main() {
             J = 7;
             contador = 0;
         }
-        if (I > 9) {
-            break;
-        }
     }
     return 0;
 }
