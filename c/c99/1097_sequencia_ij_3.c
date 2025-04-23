@@ -10,7 +10,7 @@ int main() {
 
         if (contador == 3) {
             I += 2;
-            J = 7;
+            J += 5;
             contador = 0;
         }
     }
