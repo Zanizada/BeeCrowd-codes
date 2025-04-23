@@ -7,13 +7,13 @@ int main() {
     scanf("%d", &N);
 
     for (int i = 0; i < N; i++) {
-        scanf("%d %s", &quantia, &tipo);
+        scanf("%d %c", &quantia, &tipo);
         total += quantia;
-        if (tipo = "C") {
+        if (tipo == 'C') {
             coelhos += quantia;
-        } else if (tipo = "R") {
+        } else if (tipo == 'R') {
             ratos += quantia;
-        } else if (tipo = "S") {
+        } else if (tipo == 'S') {
             sapos += quantia;
         }
     }
@@ -21,6 +21,8 @@ int main() {
     percentual_c = (coelhos*100)/total;
     percentual_r = (ratos*100)/total;
     percentual_s = (sapos*100)/total;
+
+    int total;
 
     printf("Total: %d cobaias\nTotal de coelhos: %d\nTotal de ratos: %d\nTotal de sapos: %d\nPercentual de coelhos: %.2f %%\nPercentual de ratos: %.2f %%\nPercentual de sapos: %.2f %%\n", total, coelhos, ratos, sapos, percentual_c, percentual_r, percentual_s);
 
