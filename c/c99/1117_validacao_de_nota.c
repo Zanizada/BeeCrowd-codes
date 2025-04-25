@@ -3,6 +3,7 @@
 int main() {
     double N, soma = 0, media;
     int divisor = 0;
+
     while (1) {
         scanf("%lf", &N);
 
@@ -11,9 +12,10 @@ int main() {
         } else {
             divisor++;
             soma += N;
+
             if (divisor == 2) {
-                media = soma/(float)divisor;
-                printf("media = %.2lf\n");
+                media = soma / divisor;
+                printf("media = %.2lf\n", media);
                 break;
             }
         }
