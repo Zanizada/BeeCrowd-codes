@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int X, INT, GRE, grenais = 0, vit, der, emp;
+    int X, INT, GRE, grenais = 0, vit = 0, der = 0, emp = 0;
     while (1) {
         scanf("%d %d", &INT, &GRE);
         grenais++;
@@ -17,10 +17,15 @@ int main() {
             scanf("%d", &X);
         } while (X != 1 && X != 2);
 
-        if (X == 2);
+        if (X == 2) {
         break;
+        }
     }
-    print("%d grenais\nInter:%d\nGremio:%d\nEmpates:%d\n", grenais, vit, der, emp);
+    printf("%d grenais\n", grenais);
+    printf("Inter:%d\n", vit);
+    printf("Gremio:%d\n", der);
+    printf("Empates:%d\n", emp);
+
     if (vit == der) {
         printf("Nao houve vencedor\n");
     } else if (vit > der) {
