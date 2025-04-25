@@ -14,7 +14,7 @@ int main() {
         }
 
         do {
-            printf("novo grenal (1-sim 2-nao)\n");
+            printf("Novo grenal (1-sim 2-nao)\n");
             scanf("%d", &X);
         } while (X != 1 && X != 2);
 
