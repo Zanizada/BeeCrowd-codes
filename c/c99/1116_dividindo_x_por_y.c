@@ -12,7 +12,7 @@ int main() {
             printf("divisao impossivel\n");
         } else {
             div = (float)X / Y;
-            printf("%0.1f\n", div);
+            printf("%.1f\n", div);
         }
     }
 
