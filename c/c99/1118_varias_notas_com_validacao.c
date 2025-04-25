@@ -1,46 +1,36 @@
 #include <stdio.h>
 
 int main() {
-    double N, soma = 0, media;
-    int divisor = 0;
+    double N, soma, media;
+    int divisor, X;
 
     while (1) {
-        scanf("%lf", &N);
+        soma = 0;
+        divisor = 0;
 
-        if (0 > N || N > 10) {
-            printf("nota invalida\n");
-        } else {
-            divisor++;
-            soma += N;
+        while (divisor < 2) {
+            scanf("%lf", &N);
 
-            if (divisor == 2) {
-                media = soma / divisor;
-                printf("media = %.2lf\n", media);
-            }
-            int X;
-            scanf("novo calculo (1-sim 2-nao)%d", &X);
-            if (X < 1 || X > 2) {
-                scanf("novo calculo (1-sim 2-nao)%d", &X);
+            if (N < 0 || N > 10) {
+                printf("nota invalida\n");
             } else {
-                if (X == 2) {
-                    break;
-                } else {
-                    scanf("%lf", &N);
-                    divisor = 0;
-                    soma = 0;
-
-                    if (0 > N || N > 10) {
-                        printf("nota invalida\n");
-                    } else {
-                        divisor++;
-                        soma += N;
-
-                        if (divisor == 2) {
-                            media = soma / divisor;
-                            printf("media = %.2lf\n", media);
-                }
+                soma += N;
+                divisor++;
             }
         }
+
+        media = soma / divisor;
+        printf("media = %.2lf\n", media);
+
+        do {
+            printf("novo calculo (1-sim 2-nao)\n");
+            scanf("%d", &X);
+        } while (X != 1 && X != 2);
+
+        if (X == 2) {
+            break;
+        }
     }
+
     return 0;
 }
