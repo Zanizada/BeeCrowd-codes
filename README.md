@@ -4,9 +4,10 @@ This repository contains my solutions to problems from [Beecrowd](https://www.be
 
 ## Languages
 
-- Python 🐍
-- Java ☕
-- C 💻
+- Python
+- C
+- Java
+- JavaScript
 
 ## Organization
 
@@ -14,6 +15,7 @@ Files are named according to the problem number, for example:
 - `1001.py`: Extremely Basic in Python
 - `1002.c`: Area of a Circle in C
 - `1003.java`: Simple Sum in Java
+- `1004.js`: Simple Prod in JavaScript
 
 Each language might have its own folder in the future, if needed.
 
