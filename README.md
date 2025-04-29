@@ -15,7 +15,7 @@ Files are named according to the problem number, for example:
 - `1001.py`: Extremely Basic in Python
 - `1002.c`: Area of a Circle in C
 - `1003.java`: Simple Sum in Java
-- `1004.js`: Simple Prod in JavaScript
+- `1004.js`: Simple Product in JavaScript
 
 Each language might have its own folder in the future, if needed.
 
