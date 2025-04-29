@@ -3,14 +3,13 @@ EPR = 0
 EHD = 0
 INTRUSOS = 0
 
-for i in range(N):
+for i in range(qntdDeAlunos):
     matricula, curso = input().split();
     matricula = int(matricula);
 
-    if curso == 'EPR' or curso == 'EHD':
-        if curso == 'EPR':
+    if curso == 'EPR':
             EPR += 1
-        else:
+    elif curso == 'EHD':
             EHD += 1
     else:
         INTRUSOS += 1
@@ -18,5 +17,3 @@ for i in range(N):
 print(f'EPR: {EPR}')
 print(f'EHD: {EHD}')
 print(f'INTRUSOS: {INTRUSOS}')
-
-exit()
