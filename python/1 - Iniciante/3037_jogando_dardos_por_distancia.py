@@ -5,10 +5,10 @@ arremessosMaria = 0
 for i in range(N):
     for arremessos in range(6):
 
-        for arremessosJ in range(3):
+        for arremessosJ in range(0, 3):
             X, D = map(int, input().split())
             arremessosJoao += X
-        for arremessosM in range(3, 6+1):
+        for arremessosM in range(3, 6):
             X, D = map(int, input().split())
             arremessosMaria += X
 
