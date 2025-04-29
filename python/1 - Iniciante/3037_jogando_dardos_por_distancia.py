@@ -3,6 +3,9 @@ arremessosJoao = 0
 arremessosMaria = 0
 
 for i in range(N):
+    arremessosJoao = 0
+    arremessosMaria = 0
+
     for arremessosJ in range(3):
         X, D = map(int, input().split())
         arremessosJoao += X
