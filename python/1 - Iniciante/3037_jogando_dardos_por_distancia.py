@@ -8,7 +8,7 @@ for i in range(N):
         for arremessosJ in range(3):
             X, D = map(int, input().split())
             arremessosJoao += X
-        for arremessosM in range(3):
+        for arremessosM in range(3, 6+1):
             X, D = map(int, input().split())
             arremessosMaria += X
 
