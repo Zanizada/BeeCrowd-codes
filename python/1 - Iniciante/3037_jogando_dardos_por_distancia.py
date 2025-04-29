@@ -15,5 +15,6 @@ for i in range(N):
         if arremessosJoao > arremessosMaria:
             vitoria = 'JOAO'
         elif arremessosJoao < arremessosMaria:
-               qvitoria = 'MARIA'
+            vitoria = 'MARIA'
+
         print(vitoria)
