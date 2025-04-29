@@ -1,15 +1,13 @@
 def definirSetor(setor):
     if setor > 0 and setor < 5:
         if setor == 1:
-            setor = 'Rolien'
+            return 'Rolien'
         elif setor == 2:
-            setor = 'Naej'
+            return 'Naej'
         elif setor == 3:
-            setor = 'Elehcim'
+            return 'Elehcim'
         else:
-            setor = 'Odranoel'
-
-    return setor
+            return 'Odranoel'
 
 N = int(input())
         
@@ -18,5 +16,5 @@ for i in range(N):
 
     for i in range(K):
         feedbacks = int(input())
-        definirSetor(feedbacks)
-        print(f'{setor}')
+        setor = definirSetor(feedbacks)
+        print(setor)
