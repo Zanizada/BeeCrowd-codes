@@ -8,10 +8,21 @@ while True:
     
     for i in range(N):
         sequencia = 1
-        foto = str(input())
+        string = str(input())
+        substring = None        
+
+        if substring is None:
+            substring = string
+            continue
+
+        posicao = string.find(substring)
+        
         while True:
-            if texto.find(foto) != -1:
+            if substring.find(foto) != -1:
                 sequencia += 1
             else:
                 sequencias.append(sequencia)
                 break
+
+        maiorSequencia = max(sequencias)
+        print(maiorSequencia)
