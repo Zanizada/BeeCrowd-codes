@@ -1,33 +1,29 @@
 def criptografia(texto):
     caracteres = []
-
-    # Primeira passada
-    
+    # Passada 1
     for caractere in texto:
-
+        if caractere.isalpha():
+            unidade = ord(caractere)
+            unidadeCripto = chr(unidade + 3)
+            caracteres.append(unidadeCripto)
+        else:
+            caracteres.append(caractere)
+    # Passada 2
+    caracteres = caracteres[::-1]
+    # Passada 3
+    primeiraMetade = caracteres[:len(caracteres)//2]
+    segundaMetade = caracteres[len(caracteres)//2:]
+    metadeCripto = []
+    for caractere in segundaMetade:
         unidade = ord(caractere)
-        unidadeCripto = chr(unidade + 3)
-        caracteres.append(unidadeCripto)
-
-    # Segunda passada
-
-    caracteres.reverse()
-
-    # Terceira passada
-
-    metadeInicial = len(caracteres) // 2
-    for i in range(metadeInicial, len(caracteres)):
-        caracteres[i] = chr(ord(caracteres[i]) - 1)
-
-    # Finalização
+        unidadeCripto = chr(unidade - 1)
+        metadeCripto.append(unidadeCripto)
+    # Conclusão
+    caracteres = primeiraMetade + metadeCripto
+    mensagemCriptografada = "".join(caracteres)
+    return mensagemCriptografada
     
-    mensagem = "".join(caracteres)
-    return mensagem
-
-casosTeste = int(input())
-
-for _ in range(casosTeste):
-    texto = input()
-    mensagemCriptografada = criptografia(texto)
-    
-    print(mensagemCriptografada)
+testes = int(input())
+for i in range(testes):
+    mensagem = input()
+    print(criptografia(mensagem))
