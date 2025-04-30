@@ -1,26 +1,15 @@
 while True:
     D, N = map(int, input().split())
     if D == 0 and N == 0:
-        V = 0
-        print(V)
+        print(0)
         break
 
     D = str(D)
     N = str(N)
     
-    invalido = 0
-    valorListado = []
+    valorListado = [int(num) for num in N if num != D]
 
-    for num in N:
-        if num != D:
-            num = int(num)
-            valorListado.append(num)
-        else:
-            num = int(num)
-
-    if all(num == invalido for num in valorListado):
-        V = 0
-        print(V)
+    if all(num == 0 for num in valorListado):
+        print(0)
     else:
-        V = 0
-        print(V)
+        print("".join(map(str, valorListado)))
