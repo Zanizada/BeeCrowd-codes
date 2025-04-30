@@ -3,9 +3,9 @@ def criptografia(texto):
 
     # Primeira passada
     
-    for str in texto:
+    for caractere in texto:
 
-        unidade = ord(str)
+        unidade = ord(caractere)
         unidadeCripto = chr(unidade + 3)
         caracteres.append(unidadeCripto)
 
