@@ -1,8 +1,12 @@
-def temDigitosUnicos(numero):
+def digitosUnicos(numero):
     num_str = str(numero)
 
     return len(num_str) == len(set(num_str))
 
 while True:
-    N, M = int(input())
-    
+    N, M = map(int, input().split())
+    numerosValidos = 0
+    for i in range(N, M+1):
+        if digitosUnicos(i) == True:
+            numerosValidos += 1
+    print(numerosValidos)
