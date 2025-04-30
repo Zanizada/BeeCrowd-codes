@@ -5,5 +5,4 @@ def temDigitosUnicos(numero):
 
 while True:
     N, M = int(input())
-
     
