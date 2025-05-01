@@ -5,21 +5,26 @@ while True:
         break
 
     sequencias = []
-    
+    sequenciaMaior = 1
+    sequenciaAtual = 1
     substring = None
-    
+
     for i in range(N):
-        sequencia = 1
-        string = str(input())       
+        string = input().strip()
+
         if substring is None:
             substring = string
             continue
-        posicao = string.find(substring)
-        while True:
-            if posicao != -1:
-                sequencia += 1
-            else:
-                sequencias.append(sequencia)
-                break
-        maiorSequencia = max(sequencias)
-        print(maiorSequencia)
+
+        if substring in string:
+            sequenciaAtual += 1
+        else:
+            sequencias.append(sequenciaAtual)
+            sequenciaAtual = 1
+
+        substring = string
+    
+    sequencias.append(sequenciaAtual)
+    sequenciaMaior = max(sequencias)
+
+    print(sequenciaMaior)
