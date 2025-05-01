@@ -3,26 +3,23 @@ while True:
 
     if N == 0:
         break
-    
+
     sequencias = []
+    
+    substring = None
     
     for i in range(N):
         sequencia = 1
-        string = str(input())
-        substring = None        
-
+        string = str(input())       
         if substring is None:
             substring = string
             continue
-
         posicao = string.find(substring)
-        
         while True:
-            if substring.find(foto) != -1:
+            if posicao != -1:
                 sequencia += 1
             else:
                 sequencias.append(sequencia)
                 break
-
         maiorSequencia = max(sequencias)
         print(maiorSequencia)
