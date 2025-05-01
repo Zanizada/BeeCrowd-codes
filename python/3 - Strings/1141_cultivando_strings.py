@@ -1,28 +1,29 @@
+def is_prefix(a, b):
+    return b.startswith(a)
+
+def dfs(i, strings, memo):
+    if memo[i] != -1:
+        return memo[i]
+
+    max_len = 1
+    for j in range(len(strings)):
+        if i != j and is_prefix(strings[i], strings[j]):
+            max_len = max(max_len, 1 + dfs(j, strings, memo))
+
+    memo[i] = max_len
+    return max_len
+
 while True:
     N = int(input())
-
     if N == 0:
         break
 
-    sequenciaMaior = 1
-    sequenciaAtual = 1
-    substring = None
+    strings = [input().strip() for _ in range(N)]
+    strings.sort()
 
+    memo = [-1] * N
+    resposta = 0
     for i in range(N):
-        string = input().strip()
+        resposta = max(resposta, dfs(i, strings, memo))
 
-        if substring is None:
-
-            substring = string
-            continue
-
-        if substring in string:
-            sequenciaAtual += 1
-            sequenciaMaior = max(sequenciaMaior, sequenciaAtual)
-            
-        else:
-            sequenciaAtual = 1
-
-        substring = string
-
-    print(sequenciaMaior)
+    print(resposta)
