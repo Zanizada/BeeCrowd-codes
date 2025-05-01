@@ -4,7 +4,6 @@ while True:
     if N == 0:
         break
 
-    sequencias = []
     sequenciaMaior = 1
     sequenciaAtual = 1
     substring = None
@@ -13,18 +12,17 @@ while True:
         string = input().strip()
 
         if substring is None:
+
             substring = string
             continue
 
         if substring in string:
             sequenciaAtual += 1
+            sequenciaMaior = max(sequenciaMaior, sequenciaAtual)
+            
         else:
-            sequencias.append(sequenciaAtual)
             sequenciaAtual = 1
 
         substring = string
-    
-    sequencias.append(sequenciaAtual)
-    sequenciaMaior = max(sequencias)
 
     print(sequenciaMaior)
