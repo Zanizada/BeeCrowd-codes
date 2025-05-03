@@ -1,3 +1,19 @@
+# Visual Studio Code
+.vscode/
+.vscode-test/
+.vscode-server/
+.vscode-remote/
+.vscode-remote-data/
+.vscode-test-data/
+.vscode-test-remote/
+.vscode-test-remote-data/
+.vscode-test-remote-data-*
+.vscode-test-remote-data-*/
+.vscode-test-remote-data-*/.vscode-test-remote-data-*
+.vscode-test-remote-data-*/.vscode-test-remote-data-*/.vscode-test-remote-data-*
+.vscode-test-remote-data-*/.vscode-test-remote-data-*/.vscode-test-remote-data-*/.vscode-test-remote-data-*
+.v
+
 # Python
 __pycache__/
 *.pyc
@@ -33,6 +49,8 @@ package.bluej
 .DS_Store
 Thumbs.db
 sync_log.txt
+sync.bat
+sync_pc.bat
 
 # Ignora todos os READMEs exceto o da raiz
 **/README
