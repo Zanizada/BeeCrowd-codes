@@ -1,5 +1,4 @@
-a = 6
-b = 4
+import sys
 
 def XOR(a, b):
     total_bits = []
@@ -12,12 +11,13 @@ def XOR(a, b):
             total_bits.append('0')
         else:
             total_bits.append('1')
+    
     bin_c = ''.join(total_bits)
     return int(bin_c, 2)
-while True:
-    try:
-        A, B = map(int, input().split())
-        resultado = XOR(A, B)
-        print(resultado)
-    except EOFError:
-        break
+
+input_data = sys.stdin.read().strip().splitlines()
+
+for line in input_data:
+    A, B = map(int, line.split())
+    resultado = XOR(A, B)
+    print(resultado)
