@@ -19,7 +19,7 @@ def josephus(salto, numero_alvo=None, tamanho_lista=None, lista=None):
     else:
         return lista[0] == numero_alvo
 
-def numeros_sequenciais(tamanho_lista, numero_alvo):
+def menor_salto_para_alvo(tamanho_lista, numero_alvo):
     salto = 1
     while True:
         if josephus(salto, numero_alvo, tamanho_lista) == True:
@@ -34,5 +34,5 @@ while True:
 
     regiao_alvo = 13
     
-    salto = numeros_sequenciais(qntd_regioes, regiao_alvo)
+    salto = menor_salto_para_alvo(qntd_regioes, regiao_alvo)
     print(salto)
