@@ -1,17 +1,12 @@
 casos_teste = int(input())
-sobreviventes = []
-sobrevivente = 0
 
 for i in range(casos_teste):
     qntd_pessoas, salto = map(int, input().split())
-    
-    for pessoas in range(qntd_pessoas):
-        sobreviventes.append(pessoas)
-        sobrevivente += pessoas
+    sobreviventes = list(range(1, qntd_pessoas + 1))
+    sobrevivente = 0
 
-    
     while len(sobreviventes) > 1:
         sobrevivente = (sobrevivente + salto - 1) % len(sobreviventes)
-        del sobreviventes(sobrevivente)
-    #prints dos casos
-    print(f'Case {i}: {sobreviventes[0]}')
+        del sobreviventes[sobrevivente]
+
+    print(f'Case {i+1}: {sobreviventes[0]}')
