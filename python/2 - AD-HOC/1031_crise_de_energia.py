@@ -1,5 +1,3 @@
-import random
-
 def josephus(salto, numero_alvo=None, tamanho_lista=None, lista=None):
     if lista is None and tamanho_lista is None:
         raise ValueError("Você precisa fornecer 'lista' ou 'tamanho_lista'.")
@@ -9,6 +7,7 @@ def josephus(salto, numero_alvo=None, tamanho_lista=None, lista=None):
         elif tamanho_lista is None:
             tamanho_lista = len(lista)
         
+    lista.remove(1)
     numeros_josephus = 0
     
     while len(lista) > 1:
