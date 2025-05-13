@@ -1,12 +1,6 @@
 import random
 
-def numeros_sequenciais(condicao):
-    num = 1
-    while condicao:
-        num += 1
-    return num
-
-def josephus(salto, tamanho_lista=None, lista=None):
+def josephus(salto, numero_alvo=None, tamanho_lista=None, lista=None):
     if lista is None and tamanho_lista is None:
         raise ValueError("Você precisa fornecer 'lista' ou 'tamanho_lista'.")
     else:
@@ -16,12 +10,30 @@ def josephus(salto, tamanho_lista=None, lista=None):
             tamanho_lista = len(lista)
         
     numeros_josephus = 0
+    
     while len(lista) > 1:
         numeros_josephus = (numeros_josephus + salto - 1) % len(lista)
         del lista[numeros_josephus]
-    return {lista[0]}
+    
+    if numero_alvo is None:
+        return lista[0]
+    else:
+        return lista[0] == numero_alvo
+
+def numeros_sequenciais(tamanho_lista, numero_alvo):
+    salto = 1
+    while True:
+        if josephus(salto, numero_alvo, tamanho_lista) == True:
+            return salto
+        salto += 1
 
 while True:
     qntd_regioes = int(input())
-    regioes = []
-    salto = numeros_sequenciais(())
+
+    if qntd_regioes == 0:
+        break
+
+    regiao_alvo = 13
+    
+    salto = numeros_sequenciais(qntd_regioes, regiao_alvo)
+    print(salto)
