@@ -9,30 +9,23 @@ def josephus(qntd_pessoas, salto):
     return sobreviventes[0]
 
 def verif_num_primo(numero):
-    if numero > 1:
-        if numero % 1 == 0 and numero % numero == 0:
-            return True
-        else:
-            return False
-    else:
+    if numero < 2:
         return False
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            return False
+    return True
 
 while True:
     qntd_pessoas = int(input())
-
     if qntd_pessoas == 0:
         break
-    else:
-        pass
 
     salto = 1
-    
     while True:
-        primo = verif_num_primo(salto)
-        if primo == True:
+        if verif_num_primo(salto):
             resultado = josephus(qntd_pessoas, salto)
-            break
-        else:
-            salto += 1
-
-    print(resultado)
+            if resultado == 1:
+                print(salto)
+                break
+        salto += 1
