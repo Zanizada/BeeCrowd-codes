@@ -18,7 +18,11 @@ def numero_primo(numero):
     else:
         return False
     
-numeros = int(input().split())
+numeros = list(input().split())
 for num in numeros:
+    num = int(num)
     primo = numero_primo(num)
-print(num)
+    if primo == True:
+        print(num)
+    else:
+        pass
