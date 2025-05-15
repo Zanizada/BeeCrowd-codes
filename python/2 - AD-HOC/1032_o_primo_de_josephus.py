@@ -7,3 +7,13 @@ def josephus(qntd_pessoas, salto):
         del sobreviventes[sobrevivente]
 
     return sobreviventes[0]
+
+def verif_num_primo(numero):
+    if numero > 1:
+        if numero % 1 == 0 and numero % numero == 0:
+            return True
+        else:
+            return False
+    else:
+        return False
+
