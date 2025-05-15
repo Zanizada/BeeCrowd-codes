@@ -17,3 +17,22 @@ def verif_num_primo(numero):
     else:
         return False
 
+while True:
+    qntd_pessoas = int(input())
+
+    if qntd_pessoas == 0:
+        break
+    else:
+        pass
+
+    salto = 1
+    
+    while True:
+        primo = verif_num_primo(salto)
+        if primo == True:
+            resultado = josephus(qntd_pessoas, salto)
+            break
+        else:
+            salto += 1
+
+    print(resultado)
