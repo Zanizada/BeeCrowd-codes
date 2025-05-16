@@ -32,11 +32,7 @@ while True:
 
     largura_tabuas_cm = int(input())
     tabuas_doadas = int(input())
-    
-    comprimento_tabuas = []
-    for _ in range(tabuas_doadas):
-        comprimento_tabuas.append(int(input()))
-
+    comprimento_tabuas = list(map(int, input().split()))
     largura_cm = conversao_m_para_cm(numero=largura)
     comprimento_cm = conversao_m_para_cm(numero=comprimento)
     comprimento_tabuas_cm = conversao_m_para_cm(numeros=comprimento_tabuas)
