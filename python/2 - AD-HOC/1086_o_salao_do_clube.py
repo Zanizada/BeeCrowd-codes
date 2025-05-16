@@ -19,8 +19,8 @@ def encontrar_menor_numero_possivel(lista, area):
     indice = numero_aleatorio
     menor_numero = 0
     contador = 0
-    while menor_numero < area:
-        while contador < tamanho:
+    while True:
+        while menor_numero == area:
             menor_numero =+ lista[indice]
             indice = random.randint(0, tamanho-1)
             if indice == numero_aleatorio:
@@ -29,7 +29,11 @@ def encontrar_menor_numero_possivel(lista, area):
             else:
                 continue
             contador += 1
-
+        break
+    if contador <= tamanho:
+        return contador
+    else:
+        return 'impossivel'
 
 while True:
     largura, comprimento = map(int, input().split())
@@ -55,3 +59,4 @@ while True:
     while indice < tabuas_doadas:
         areas_das_tabuas_cm.append(largura_tabuas_cm * comprimento_tabuas_cm[0+indice])
         indice += 1
+        menor_numero_possivel = encontrar_menor_numero_possivel(areas_das_tabuas_cm, area_do_salao_cm)
