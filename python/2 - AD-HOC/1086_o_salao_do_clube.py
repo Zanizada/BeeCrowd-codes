@@ -33,9 +33,9 @@ while True:
     largura_tabuas_cm = int(input())
     tabuas_doadas = int(input())
     comprimento_tabuas = list(map(int, input().split()))
-    largura_cm = conversao_m_para_cm(numero=largura)
-    comprimento_cm = conversao_m_para_cm(numero=comprimento)
-    comprimento_tabuas_cm = conversao_m_para_cm(numeros=comprimento_tabuas)
+    largura_cm = conversao_m_para_cm(largura)
+    comprimento_cm = conversao_m_para_cm(comprimento)
+    comprimento_tabuas_cm = conversao_m_para_cm(comprimento_tabuas)
     area_do_salao_cm = largura_cm * comprimento_cm
     indice = 0
     areas_das_tabuas_cm = [largura_tabuas_cm * c for c in comprimento_tabuas_cm]
