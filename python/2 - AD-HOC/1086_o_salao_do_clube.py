@@ -1,17 +1,8 @@
-import random
-
-def conversao_m_para_cm(numero=None, numeros=None):
-    if numero is None and numeros is not None:
-        metros = []
-        for num in numeros:
-            centimetros = num * 100
-            metros.append(centimetros)
-        return metros
-    elif numeros is None and numero is not None:
-        metro = numero * 100
-        return metro
+def conversao_m_para_cm(numero):
+    if isinstance(numero, list):
+        return [n * 100 for n in numero]
     else:
-        raise ValueError()
+        return numero * 100
 
 def encontrar_menor_numero_possivel(lista, area):
     lista.sort(reverse=True)
@@ -51,11 +42,6 @@ while True:
     comprimento_tabuas_cm = conversao_m_para_cm(numeros=comprimento_tabuas)
     area_do_salao_cm = largura_cm * comprimento_cm
     indice = 0
-    areas_das_tabuas_cm = []
-    
-    while indice < tabuas_doadas:
-        areas_das_tabuas_cm.append(largura_tabuas_cm * comprimento_tabuas_cm[0+indice])
-        indice += 1
-    
+    areas_das_tabuas_cm = [largura_tabuas_cm * c for c in comprimento_tabuas_cm]
     menor_numero_possivel = encontrar_menor_numero_possivel(areas_das_tabuas_cm, area_do_salao_cm)
     print(menor_numero_possivel)
