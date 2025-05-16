@@ -21,6 +21,10 @@ while True:
 
     L = int(input())
     K = int(input())
+    
     for i in range(K):
         X = list(map(int, input().split()))
-        
+
+    N = conversao_m_para_cm(N)
+    M = conversao_m_para_cm(N)
+    comprimento_tabuas = conversao_m_para_cm(X)
