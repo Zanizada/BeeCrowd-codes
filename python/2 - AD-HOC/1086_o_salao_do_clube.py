@@ -12,19 +12,27 @@ def conversao_m_para_cm(numero=None, numeros=None):
         raise ValueError()
 
 while True:
-    N, M = map(int, input().split())
+    largura, comprimento = map(int, input().split())
 
-    if N == 0 and M == 0:
+    if largura == 0 and comprimento == 0:
         break
     else:
         pass
 
-    L = int(input())
-    K = int(input())
+    largura_tabuas_cm = int(input())
+    tabuas_doadas = int(input())
     
-    for i in range(K):
-        X = list(map(int, input().split()))
+    for i in range(tabuas_doadas):
+        comprimento_tabuas = list(map(int, input().split()))
 
-    N = conversao_m_para_cm(N)
-    M = conversao_m_para_cm(N)
-    comprimento_tabuas = conversao_m_para_cm(X)
+    largura_cm = conversao_m_para_cm(largura)
+    comprimento_cm = conversao_m_para_cm(comprimento)
+    comprimento_tabuas_cm = conversao_m_para_cm(comprimento_tabuas)
+    area_do_salao_cm = largura_cm * comprimento_cm
+    indice = 0
+    areas_das_tabuas_cm = []
+    while indice < tabuas_doadas:
+        areas_das_tabuas_cm.append(largura_tabuas_cm * comprimento_tabuas_cm[0+indice])
+        indice += 1
+
+      
