@@ -14,26 +14,22 @@ def conversao_m_para_cm(numero=None, numeros=None):
         raise ValueError()
 
 def encontrar_menor_numero_possivel(lista, area):
-    tamanho = len(lista)
-    numero_aleatorio = random.randint(0, tamanho-1)
-    indice = numero_aleatorio
-    menor_numero = 0
-    contador = 0
-    while True:
-        while menor_numero < area:
-            menor_numero += lista[indice]
-            indice = random.randint(0, tamanho-1)
-            if indice == numero_aleatorio:
-                indice = random.randint(0, tamanho)
-                numero_aleatorio = indice
-            else:
-                continue
-            contador += 1
-        break
-    if contador <= tamanho:
-        return contador
-    else:
-        return 'impossivel'
+    lista.sort(reverse=True)
+    n = len(lista)
+    melhor = [float('inf')]
+
+    def backtrack(inicio, soma, usadas):
+        if soma > area or usadas >= melhor[0]:
+            return
+        if soma == area:
+            melhor[0] = min(melhor[0], usadas)
+            return
+        for i in range(inicio, n):
+            backtrack(i + 1, soma + lista[i], usadas + 1)
+
+    backtrack(0, 0, 0)
+    return melhor[0] if melhor[0] != float('inf') else 'impossivel'
+
 
 while True:
     largura, comprimento = map(int, input().split())
@@ -50,9 +46,9 @@ while True:
     for _ in range(tabuas_doadas):
         comprimento_tabuas.append(int(input()))
 
-    largura_cm = conversao_m_para_cm(largura)
-    comprimento_cm = conversao_m_para_cm(comprimento)
-    comprimento_tabuas_cm = conversao_m_para_cm(comprimento_tabuas)
+    largura_cm = conversao_m_para_cm(numero=largura)
+    comprimento_cm = conversao_m_para_cm(numero=comprimento)
+    comprimento_tabuas_cm = conversao_m_para_cm(numeros=comprimento_tabuas)
     area_do_salao_cm = largura_cm * comprimento_cm
     indice = 0
     areas_das_tabuas_cm = []
