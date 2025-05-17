@@ -1,43 +1,57 @@
-def conversao_m_para_cm(numero):
-    if isinstance(numero, list):
-        return [n * 100 for n in numero]
-    else:
-        return numero * 100
+def resolver():
+    while True:
+        # Entrada: dimensões do salão
+        largura, comprimento = map(int, input().split())
+        if largura == 0 and comprimento == 0:
+            break
 
-def encontrar_menor_numero_possivel(lista, area):
-    lista.sort(reverse=True)
-    n = len(lista)
-    melhor = [float('inf')]
+        # Lê os demais dados
+        largura_tabuas_cm = int(input())
+        k = int(input())
+        comprimentos_metros = list(map(int, input().split()))
 
-    def backtrack(inicio, soma, usadas):
-        if soma > area or usadas >= melhor[0]:
-            return
-        if soma == area:
-            melhor[0] = min(melhor[0], usadas)
-            return
-        for i in range(inicio, n):
-            backtrack(i + 1, soma + lista[i], usadas + 1)
+        # Conversão para cm
+        largura_cm = largura * 100
+        comprimento_cm = comprimento * 100
+        comprimentos_cm = [c * 100 for c in comprimentos_metros]
 
-    backtrack(0, 0, 0)
-    return melhor[0] if melhor[0] != float('inf') else 'impossivel'
+        # Quantas "fileiras" precisamos?
+        if largura_cm % largura_tabuas_cm != 0:
+            print("impossivel")
+            continue
+        linhas_necessarias = largura_cm // largura_tabuas_cm
 
+        # Separa tábuas que cobrem sozinhas o comprimento
+        sozinhas = []
+        pequenas = []
+        for t in comprimentos_cm:
+            if t >= comprimento_cm:
+                sozinhas.append(t)
+            else:
+                pequenas.append(t)
 
-while True:
-    largura, comprimento = map(int, input().split())
+        # Conta quantas fileiras já dá pra cobrir com tábuas sozinhas
+        fileiras_cobertas = min(len(sozinhas), linhas_necessarias)
+        total_tabuas_usadas = fileiras_cobertas
+        linhas_restantes = linhas_necessarias - fileiras_cobertas
 
-    if largura == 0 and comprimento == 0:
-        break
-    else:
-        pass
+        # Tentar formar pares de tábuas pequenas que somem >= comprimento_cm
+        pequenas.sort()
+        i = 0
+        j = len(pequenas) - 1
+        while i < j and linhas_restantes > 0:
+            if pequenas[i] + pequenas[j] >= comprimento_cm:
+                # Esse par cobre uma fileira
+                total_tabuas_usadas += 2
+                linhas_restantes -= 1
+                i += 1
+                j -= 1
+            else:
+                # Muito pequena, tentar com uma maior
+                i += 1
 
-    largura_tabuas_cm = int(input())
-    tabuas_doadas = int(input())
-    comprimento_tabuas = list(map(int, input().split()))
-    largura_cm = conversao_m_para_cm(largura)
-    comprimento_cm = conversao_m_para_cm(comprimento)
-    comprimento_tabuas_cm = conversao_m_para_cm(comprimento_tabuas)
-    area_do_salao_cm = largura_cm * comprimento_cm
-    indice = 0
-    areas_das_tabuas_cm = [largura_tabuas_cm * c for c in comprimento_tabuas_cm]
-    menor_numero_possivel = encontrar_menor_numero_possivel(areas_das_tabuas_cm, area_do_salao_cm)
-    print(menor_numero_possivel)
+        # Se ainda faltam fileiras, é impossível
+        if linhas_restantes > 0:
+            print("impossivel")
+        else:
+            print(total_tabuas_usadas)
