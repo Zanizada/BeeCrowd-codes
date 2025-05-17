@@ -17,7 +17,8 @@ def tabuleiro_xadrez_real():
     for linha in range(1, 9):
         print(f"{linha} ", end="")
         for _ in range(8):
-            print("[ ]", end="")
+            print(" _ ", end="")
+            print("[_]", end="")
         print()
 
 # while True:
