@@ -3,18 +3,18 @@ from rich.table import Table
 
 console = Console()
 
-tabela = Table(show_header=True, header_style="bold white", show_lines=True)
+tabela = Table(show_header=True, header_style="bold", show_lines=True)
 tabela.add_column(" ", style="bold")
 for letra in "A B C D E F G H".split():
     tabela.add_column(letra, justify="center")
 
-cor_clara = "white on #EEE8AA"
-cor_escura = "white on #8B4513"
-
 for linha in range(8, 0, -1):
     linha_casas = []
     for coluna in range(8):
-        cor = cor_clara if (linha + coluna) % 2 == 0 else cor_escura
+        if (linha + coluna) % 2 == 0:
+            cor = "on white"
+        else:
+            cor = "on black"
         casa = f"[{cor}]   [/{cor}]"
         linha_casas.append(casa)
     tabela.add_row(str(linha), *linha_casas)
