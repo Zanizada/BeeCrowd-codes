@@ -1,49 +1,70 @@
-def resolver():
-    while True:
-        largura, comprimento = map(int, input().split())
-        if largura == 0 and comprimento == 0:
-            break
+from collections import Counter
 
-        largura_tabuas_cm = int(input())
-        k = int(input())
-        comprimentos_metros = list(map(int, input().split()))
+def conversao_m_para_cm(numero):
+    if isinstance(numero, list):
+        return [n * 100 for n in numero]
+    else:
+        return numero * 100
 
-        largura_cm = largura * 100
-        comprimento_cm = comprimento * 100
-        comprimentos_cm = [c * 100 for c in comprimentos_metros]
+def resolver(c, r, largura_tabuas_cm, tabuas):
+    if c % largura_tabuas_cm != 0:
+        return 'impossivel'
 
-        if largura_cm % largura_tabuas_cm != 0:
-            print("impossivel")
-            continue
-        linhas_necessarias = largura_cm // largura_tabuas_cm
+    fileiras = c // largura_tabuas_cm
+    comprimento_necessario = r
 
-        sozinhas = []
-        pequenas = []
-        for t in comprimentos_cm:
-            if t >= comprimento_cm:
-                sozinhas.append(t)
-            else:
-                pequenas.append(t)
+    tabuas_validas = [t for t in tabuas if t <= comprimento_necessario]
 
-        fileiras_cobertas = min(len(sozinhas), linhas_necessarias)
-        total_tabuas_usadas = fileiras_cobertas
-        linhas_restantes = linhas_necessarias - fileiras_cobertas
+    contagem = Counter(tabuas_validas)
+    usadas = 0
 
-        pequenas.sort()
-        i = 0
-        j = len(pequenas) - 1
-        while i < j and linhas_restantes > 0:
-            if pequenas[i] + pequenas[j] >= comprimento_cm:
-                total_tabuas_usadas += 2
-                linhas_restantes -= 1
-                i += 1
-                j -= 1
-            else:
-                i += 1
+    usar_simples = min(contagem[comprimento_necessario], fileiras)
+    usadas += usar_simples
+    contagem[comprimento_necessario] -= usar_simples
+    fileiras -= usar_simples
 
-        if linhas_restantes > 0:
-            print("impossivel")
+    if fileiras == 0:
+        return usadas
+
+    comprimentos = sorted(contagem.keys())
+    i, j = 0, len(comprimentos) - 1
+
+    while i <= j and fileiras > 0:
+        a, b = comprimentos[i], comprimentos[j]
+        if a + b < comprimento_necessario:
+            i += 1
+        elif a + b > comprimento_necessario:
+            j -= 1
         else:
-            print(total_tabuas_usadas)
+            if a == b:
+                pares = contagem[a] // 2
+            else:
+                pares = min(contagem[a], contagem[b])
 
-resolver()
+            usados_pares = min(pares, fileiras)
+            usadas += usados_pares * 2
+            contagem[a] -= usados_pares
+            contagem[b] -= usados_pares
+            fileiras -= usados_pares
+
+            if contagem[a] == 0: i += 1
+            if contagem[b] == 0: j -= 1
+
+    return usadas if fileiras == 0 else 'impossivel'
+
+
+while True:
+    largura, comprimento = map(int, input().split())
+    if largura == 0 and comprimento == 0:
+        break
+
+    largura_tabuas_cm = int(input())
+    tabuas_doadas = int(input())
+    comprimento_tabuas = list(map(int, input().split()))
+
+    largura_cm = conversao_m_para_cm(largura)
+    comprimento_cm = conversao_m_para_cm(comprimento)
+    comprimento_tabuas_cm = conversao_m_para_cm(comprimento_tabuas)
+
+    resultado = resolver(largura_cm, comprimento_cm, largura_tabuas_cm, comprimento_tabuas_cm)
+    print(resultado)
