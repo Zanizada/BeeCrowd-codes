@@ -3,13 +3,33 @@ def tabuleiro_xadrez():
     for linha in range(1, 9):
         for coluna in range(1, 9):
             tabuleiro.append((linha, coluna))
+    for posicao in tabuleiro:
+        print(posicao)
 
-while True:
-    try:
-        X1, Y1, X2, Y2 = map(int, input().split())
+def tabuleiro_xadrez_grid():
+    colunas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+    tabuleiro = []
+
+    for linha in range(1, 9):
+        for coluna in colunas:
+            tabuleiro.append((coluna, linha))
+
+    for linha in range(8, 0, -1):
+        for coluna in colunas:
+            print(f"{coluna}{linha}", end=" ")
+        print()
+
+
+# while True:
+#     try:
+#         X1, Y1, X2, Y2 = map(int, input().split())
         
-        if X1 == Y1 == X2 == Y2 == 0:
-            break
+#         if X1 == Y1 == X2 == Y2 == 0:
+#             break
+        
+#         tabuleiro_xadrez()
 
-    except EOFError:
-        break
+#     except EOFError:
+#         break
+
+tabuleiro_xadrez_grid()
