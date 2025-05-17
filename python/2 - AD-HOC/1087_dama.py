@@ -6,19 +6,19 @@ def tabuleiro_xadrez():
     for posicao in tabuleiro:
         print(posicao)
 
-def tabuleiro_xadrez_grid():
+def tabuleiro_xadrez_real():
     colunas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-    tabuleiro = []
+
+    print("  ", end="")
+    for coluna in colunas:
+        print(f" {coluna} ", end="")
+    print()
 
     for linha in range(1, 9):
-        for coluna in colunas:
-            tabuleiro.append((coluna, linha))
-
-    for linha in range(8, 0, -1):
-        for coluna in colunas:
-            print(f"{coluna}{linha}", end=" ")
+        print(f"{linha} ", end="")
+        for _ in range(8):
+            print("[ ]", end="")
         print()
-
 
 # while True:
 #     try:
@@ -32,4 +32,4 @@ def tabuleiro_xadrez_grid():
 #     except EOFError:
 #         break
 
-tabuleiro_xadrez_grid()
+tabuleiro_xadrez_real()
