@@ -3,27 +3,31 @@ from rich.table import Table
 
 console = Console()
 
-def tabuleiro_xadrez():
-    tabuleiro = []
-    for linha in range(1, 9):
-        for coluna in range(1, 9):
-            tabuleiro.append((linha, coluna))
-    for posicao in tabuleiro:
-        print(posicao)
+tabela = Table(show_header=True, header_style="bold white", show_lines=True)
+tabela.add_column(" ", style="bold")
+for letra in "A B C D E F G H".split():
+    tabela.add_column(letra, justify="center")
 
-def tabuleiro_xadrez_real():
-    tabela = Table(show_header=True, header_style="bold white", show_lines=True)
+cor_clara = "white on #EEE8AA"
+cor_escura = "white on #8B4513"
 
-    tabela.add_column(" ", style="bold")
+for linha in range(8, 0, -1):
+    linha_casas = []
+    for coluna in range(8):
+        cor = cor_clara if (linha + coluna) % 2 == 0 else cor_escura
+        casa = f"[{cor}]   [/{cor}]"
+        linha_casas.append(casa)
+    tabela.add_row(str(linha), *linha_casas)
 
-    for letra in "A B C D E F G H".split():
-        tabela.add_column(letra, justify="center")
+console.print(tabela)
 
-    for linha in range(8, 0, -1):
-        casas = ["[ ]" for _ in range(8)]
-        tabela.add_row(str(linha), *casas)
-
-    console.print(tabela)
+# def tabuleiro_xadrez():
+#     tabuleiro = []
+#     for linha in range(1, 9):
+#         for coluna in range(1, 9):
+#             tabuleiro.append((linha, coluna))
+#     for posicao in tabuleiro:
+#         print(posicao)
 
 # while True:
 #     try:
@@ -36,5 +40,3 @@ def tabuleiro_xadrez_real():
 
 #     except EOFError:
 #         break
-
-tabuleiro_xadrez_real()
