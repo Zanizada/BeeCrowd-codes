@@ -1,3 +1,8 @@
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
 def tabuleiro_xadrez():
     tabuleiro = []
     for linha in range(1, 9):
@@ -7,19 +12,18 @@ def tabuleiro_xadrez():
         print(posicao)
 
 def tabuleiro_xadrez_real():
-    colunas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+    tabela = Table(show_header=True, header_style="bold white", show_lines=True)
 
-    print("  ", end="")
-    for coluna in colunas:
-        print(f" {coluna} ", end="")
-    print()
+    tabela.add_column(" ", style="bold")
 
-    for linha in range(1, 9):
-        print(f"{linha} ", end="")
-        for _ in range(8):
-            print(" _ ", end="")
-            print("[_]", end="")
-        print()
+    for letra in "A B C D E F G H".split():
+        tabela.add_column(letra, justify="center")
+
+    for linha in range(8, 0, -1):
+        casas = ["[ ]" for _ in range(8)]
+        tabela.add_row(str(linha), *casas)
+
+    console.print(tabela)
 
 # while True:
 #     try:
