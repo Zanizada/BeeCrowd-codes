@@ -1,31 +1,26 @@
 def matriz(ordem):
-    matriz = []
-    for linhas_ in range(ordem):
-        linha = []
-        for colunas_ in range(ordem):
-            linha.append(0)
-        matriz.append(linha)
+    matriz = [[0]*ordem for _ in range(ordem)]
 
-    for linhas in range(ordem):
-        for colunas in range(ordem):
-            camada = min(linhas, colunas, ordem - 1 - linhas, ordem - 1 - colunas)
-            matriz[linhas][colunas] = camada + 1
+    for i in range(ordem):
+        for j in range(ordem):
+            camada = min(i, j, ordem - 1 - i, ordem - 1 - j)
+            matriz[i][j] = camada + 1
 
-    for linhas in range(ordem):
-        linha_formatada = ' '.join(f"{matriz[linhas][colunas]:>3}" for colunas in range(ordem))
-        print(linha_formatada)
-    print()
+    for i in range(ordem):
+        linha = f"{matriz[i][0]:>3}"
+        for j in range(1, ordem):
+            linha += f" {matriz[i][j]:>3}"
+        print(linha)
+
 
 first = True
 while True:
-    ordens_matrizes = int(input())
-    
-    if ordens_matrizes == 0:
+    n = int(input())
+    if n == 0:
         break
-
     if not first:
         print()
     else:
         first = False
 
-    matriz(ordens_matrizes)
+    matriz(n)
