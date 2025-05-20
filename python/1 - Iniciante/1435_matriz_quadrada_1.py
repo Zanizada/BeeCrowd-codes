@@ -12,12 +12,9 @@ def matriz(ordem):
             matriz[linhas][colunas] = camada + 1
 
     for linhas in range(ordem):
-        for colunas in range(ordem):
-            if colunas == 0:
-                print(f"{matriz[linhas][colunas]:>3}", end='')
-            else:
-                print(f" {matriz[linhas][colunas]:>3}", end='')
-        print()
+        linha_formatada = ' '.join(f"{matriz[linhas][colunas]:>3}" for colunas in range(ordem))
+        print(linha_formatada)
+    print()
 
 first = True
 while True:
