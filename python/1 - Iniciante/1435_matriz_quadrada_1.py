@@ -6,16 +6,12 @@ def matriz(ordem):
             linha.append(str(camada + 1).rjust(3))
         print(''.join(linha))
 
-first = True
 while True:
     try:
         n = int(input())
         if n == 0:
             break
-        if not first:
-            print()
-        else:
-            first = False
         matriz(n)
+        print()
     except EOFError:
         break
