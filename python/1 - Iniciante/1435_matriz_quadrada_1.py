@@ -1,18 +1,23 @@
 def matriz(ordem):
-    espaço_inicial = '  '
+    espaco_inicial = '  '
     for i in range(ordem):
         linha = []
+        if espaco_inicial not in linha:
+            linha.append(espaco_inicial)
         for j in range(ordem):
             camada = min(i, j, ordem - 1 - i, ordem - 1 - j)
             linha.append(str(camada + 1))
+            if linha[0] == espaco_inicial:
+                linha = [''.join(linha)]
         print('   '.join(linha))
+    print()
+
 
 while True:
     try:
-        n = int(input())
-        if n == 0:
+        ordem_matriz = int(input())
+        if ordem_matriz == 0:
             break
-        matriz(n)
-        print()
+        matriz(ordem_matriz)
     except EOFError:
         break
