@@ -11,17 +11,14 @@ def matriz(ordem):
             camada = min(linhas, colunas, ordem - 1 - linhas, ordem - 1 - colunas)
             matriz[linhas][colunas] = camada + 1
 
-    for i in range(ordem):
-        for j in range(ordem):
-            if j == 0:
-                # Sem espaço no início
-                print(f"{matriz[i][j]:>3}", end='')
+    for linhas in range(ordem):
+        for colunas in range(ordem):
+            if colunas == 0:
+                print(f"{matriz[linhas][colunas]:>3}", end='')
             else:
-                # Um espaço entre os números
-                print(f" {matriz[i][j]:>3}", end='')
+                print(f" {matriz[linhas][colunas]:>3}", end='')
         print()
 
-# Loop para ler entradas e processar cada matriz
 first = True
 while True:
     ordens_matrizes = int(input())
@@ -30,7 +27,7 @@ while True:
         break
 
     if not first:
-        print()  # Linha em branco entre as matrizes
+        print()
     else:
         first = False
 
