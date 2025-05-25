@@ -1,16 +1,15 @@
 import math
 
 while True:
-    try:
-        largura, comprimento, percentual = map(int, input().split())
-        
-        if largura == 0 and comprimento == None and percentual == None:
-            break
-        
-        area_da_casa = math.ceil(largura*comprimento)
-        area_terreno = math.ceil(area_da_casa/(percentual/100))
-        lado_terreno = math.ceil(math.sqrt(area_terreno))
-        print(lado_terreno)
+    entrada = input().strip()
 
-    except EOFError:
+    if entrada == "0":
         break
+
+    A, B, C = map(int, entrada.split())
+
+    area_casa = A * B
+    area_terreno = area_casa / (C / 100)
+    lado_terreno = int(math.sqrt(area_terreno))
+
+    print(lado_terreno)
