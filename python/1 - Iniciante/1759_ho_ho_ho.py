@@ -1,0 +1,1 @@
+HOs = int(input())
