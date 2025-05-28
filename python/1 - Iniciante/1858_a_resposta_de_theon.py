@@ -1,1 +1,1 @@
-tentativa = int(input())
+pessoas = int(input())
