@@ -1,21 +1,20 @@
 estrelas = int(input())
 carneiros = list(map(int, input().split()))
-carneiros_roubados = 0
-estrelas_roubadas = 0
+
 i = 0
+estrelas_visitadas = [0] * estrelas
 
-while i in range(estrelas):
+while 0 <= i < estrelas:
+    if carneiros[i] > 0:
+        carneiros[i] -= 1
+        estrelas_visitadas[i] = 1
+
     if carneiros[i] % 2 != 0:
-        carneiros_roubados += 1
         i += 1
-        estrelas_roubadas += 1
-        carneiros[i] = carneiros[i] - 1
     else:
-        carneiros_roubados += 1
         i -= 1
-        estrelas_roubadas += 1
-        carneiros[i] = carneiros[i] - 1
 
-carneiros_salvos = sum(carneiros) - carneiros_roubados
+estrelas_roubadas = sum(estrelas_visitadas)
+carneiros_salvos = sum(carneiros)
 
-print(carneiros_salvos)
+print(estrelas_roubadas ,carneiros_salvos)
