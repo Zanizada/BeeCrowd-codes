@@ -1,10 +1,21 @@
 casos_teste = int(input())
 
-for i in casos_teste:
+jokenpo = {
+    "tesoura": ["papel", "lagarto"],
+    "papel": ["pedra", "Spock"],
+    "pedra": ["lagarto", "tesoura"],
+    "lagarto": ["Spock", "papel"],
+    "Spock": ["tesoura", "pedra"]
+}
+
+for i in range(casos_teste):
     sheldon, raj = input().split()
-    "tesoura" > "papel"
-    "papel" > "pedra"
-    "pedra" > "lagarto"
-    "lagarto" > "Spock"
-    "Spock" > "tesoura"
-    "tesoura" > "lagarto"
+    
+    if sheldon in jokenpo[raj]:
+        resultado = "Raj trapaceou!"
+    elif raj in jokenpo[sheldon]:
+        resultado = "Bazinga!"
+    elif sheldon == raj:
+        resultado = "De novo!"
+    
+    print(f"Caso #{i+1}: {resultado}")
