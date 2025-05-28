@@ -1,9 +1,12 @@
-qntd_pessoas = int(input())
-pessoas = list(map(int, input().split()) for _ in range(qntd_pessoas))
-contador = 0
+n = int(input())
+ti = list(map(int, input().split()))
 
-for i in range(1, qntd_pessoas+1):
-    if i in pessoas:
-        contador += 1
+menor = ti[0]
+indice = 1
 
-print(contador)
+for i in range(1, n):
+    if ti[i] < menor:
+        menor = ti[i]
+        indice = i + 1
+
+print(indice)
