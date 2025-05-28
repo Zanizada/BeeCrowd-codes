@@ -54,8 +54,24 @@ print(estrelas_roubadas ,carneiros_salvos)
 # carneiros = [0, 3, 5, 7, 11, 13, 15, 18]
 # estrelas_visitadas = [1, 0, 0, 0, 0, 0, 1, 1]
 
-    # if carneiros[-2] > 0: --> 16 > 0 --> True
-        # carneiros[-2] -= 1 --> carneiros[-2] = 15
-        # estrelas_visitadas[-2] = 1
-    # if carneiros[-2] % 2 != 0: --> True
+    # if carneiros[-1] > 0: --> 18 > 0 --> True
+        # carneiros[-1] -= 1 --> carneiros[-1] = 17
+        # estrelas_visitadas[-1] = 1
+    # if carneiros[-1] % 2 != 0: --> True
+        # i += 1
+    
+# carneiros = [0, 3, 5, 7, 11, 13, 15, 17]
+# estrelas_visitadas = [1, 0, 0, 0, 0, 0, 1, 1]
+
+    # if carneiros[0] > 0: --> 0 > 0 --> False
+    # if carneiros[0] % 2 != 0: --> False
+        # i -= 1
+
+# carneiros = [0, 3, 5, 7, 11, 13, 15, 17]
+# estrelas_visitadas = [1, 0, 0, 0, 0, 0, 1, 1]
+
+    # if carneiros[-1] > 0: --> 15 > 0 --> True
+        # carneiros[-1] -= 1 --> carneiros[-2] = 15
+        # estrelas_visitadas[-1] = 1
+    # if carneiros[-1] % 2 != 0: --> True
         # i += 1
