@@ -1,10 +1,8 @@
 while True:
     try:
         horas, minutos = map(int, input().split(":"))
-        if horas >= 7:
-            if 0 < minutos < 60:
-                print(f"Atraso maximo: {minutos}")
-            else:
-                print(f"Atraso maximo: 0")
+        atraso = max(0, (horas - 7) * 60 + minutos)
+        print(f"Atraso maximo: {atraso}")
+        
     except EOFError:
         break
