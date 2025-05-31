@@ -1,8 +1,8 @@
 cha = int(input())
-a, b, c, d, e = list(map(int, input().split()))
-chas = [
-    1: "branco",
-    2: "verde",
-    3: "preto",
-    4: "ervas"
-]
+a, b, c, d, e = map(int, input().split())
+competidores = [a, b, c, d, e]
+corretos = 0
+for competidor in competidores:
+    if competidor == cha:
+        corretos += 1
+print(corretos)
