@@ -1,15 +1,16 @@
-def multiplos(numero, multiplos=list):
+def verificar_multiplos(numeros=list, multiplos=list):
     contador = 0
     resultados = []
     for multiplo in multiplos:
-        resultado = f"{contador} Multiplos(s) de {multiplo}"
-        if numero % multiplo == 0:
-            contador += 1
+        for numero in numeros:
+            if numero % multiplo == 0:
+                resultado = f"{contador} Multiplos(s) de {multiplo}"
+                contador += 1
         resultados.append(resultado)
-        return resultado
+    return resultados
 
 tamanho_lista = int(input())
 numeros = list(map(int, input().split()))
+multiplos = [2, 3, 4, 5]
 
-for numero in numeros:
-    if numero % 2 == 0:
+print(verificar_multiplos(numeros, multiplos))
