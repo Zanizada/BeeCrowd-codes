@@ -7,25 +7,11 @@ par_ou_impar = {
 
 escolha = par_ou_impar[escolha]
 soma = numero_um + numero_dois
-resultados = {
-    (soma % 2 == 0): "par",
-    (soma % 2 != 0): "impar"
-}
 
 if roubou == 1 and acusou == 1:
     resultado = "Jogador 2 ganha!"
 elif roubou == 1 and acusou == 0:
     resultado = "Jogador 1 ganha!"
 else:
-    if soma % 2 != 0:
-        if escolha == "impar":
-            resultado = "Jogador 1 ganha!"
-        else:
-            resultado = "Jogador 2 ganha!"
-    else:
-        if escolha == "par":
-            resultado = "Jogador 1 ganha!"
-        else:
-            resultado = "Jogador 2 ganha!"
-
+    resultado = "Jogador 2 ganha!" if soma % 2 == 0 else "Jogador 1 ganha!"
 print(resultado)
