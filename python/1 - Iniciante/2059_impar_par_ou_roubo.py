@@ -7,6 +7,10 @@ par_ou_impar = {
 
 escolha = par_ou_impar[escolha]
 soma = numero_um + numero_dois
+resultados = {
+    (soma % 2 == 0): "par",
+    (soma % 2 != 0): "impar"
+}
 
 if roubou == 1 and acusou == 1:
     resultado = "Jogador 2 ganha!"
