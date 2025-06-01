@@ -1,0 +1,1 @@
+escolha, numero_um, numero_dois, roubou, acusou = map(int, input().split())
