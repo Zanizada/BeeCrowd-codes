@@ -3,9 +3,9 @@ while True:
         valor = int(input())
         valor = str(valor)
         numero = []
-        posicao = 0
         for num in valor:
-            num = int(num)
-            
+            numero.append(num)
+        posicao = 0
+
     except EOFError:
         break
