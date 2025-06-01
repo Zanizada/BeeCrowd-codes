@@ -1,12 +1,16 @@
 def verificar_multiplos(numeros=list, multiplos=list):
     
+    i = 0
     resultados = []
-    for multiplo in multiplos:
+    while i <= len(multiplos):
         contador = 0
         for numero in numeros:
-            if numero % multiplo == 0:
+            if numero % multiplos[i] == 0:
                 contador += 1
-                resultado = f"{contador} Multiplos(s) de {multiplo}"
+                resultado = f"{contador} Multiplos(s) de {multiplos[i]}"
+            else:
+                resultado = f"{contador} Multiplos(s) de {multiplos[i]}"
+        i += 1
         resultados.append(resultado)
     return resultados
 
