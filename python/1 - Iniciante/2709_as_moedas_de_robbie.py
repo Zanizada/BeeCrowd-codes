@@ -18,6 +18,7 @@ while True:
                 primo = True
             else:
                 primo = False
+                break
 
         if primo == True:
             resultado = "You're a coastal aircraft, Robbie, a large silver aircraft."
