@@ -1,34 +1,50 @@
-def raio_e_dano_da_magia(dicionario, magia, nivel):
-    dano = dicionario[magia][0]
-    raio = dicionario[magia][nivel]
-    return dano, raio
+dano = {
+    "fire": 200,
+    "water": 300,
+    "earth": 400,
+    "air": 100
+}
+
+raio = {
+    "fire": {
+        1: 20,
+        2: 30,
+        3: 50
+    },
+    "water": {
+        1: 10,
+        2: 25,
+        3: 40
+    },
+    "earth": {
+        1: 25,
+        2: 55,
+        3: 70
+    },
+    "air": {
+        1: 18,
+        2: 38,
+        3: 60
+    }
+}
+
+def dentro(x1, y1, x2, y2, xc, yc, r):
+    xm = max(x1, min(xc, x2))
+    ym = max(y1, min(yc, y2))
+
+    return ((xm - xc)**2 + (ym - yc)**2) <= r * r
+
+def resolve(magia, nivel, x1, y1, x2, y2, xc, yc):
+    if (dentro(x1, y1, x2, y2, xc, yc, raio[magia][nivel])):
+        return dano[magia]
+    
+    return 0
 
 casos = int(input())
 
-magias = {
-    "fire": [200, 20, 30, 50],
-    "water": [300, 10, 25, 40],
-    "earth": [400, 25, 55, 70],
-    "air": [100, 18, 38, 60]
-}
-
 for _ in range(casos):
-    largura, altura, x1, y1 = map(int, input().split())
-    magia, nivel, centro_x, centro_y = input().split()
-    nivel, centro_x, centro_y = int(nivel), int(centro_x), int(centro_y)
-    dano, raio = raio_e_dano_da_magia(magias, magia, nivel)
+    w, h, x0, y0 = [int(x) for x in input().strip().split()]
+    magia, N, cx, cy = input().strip().split()
+    N, cx, cy = [int(x) for x in [N, cx, cy]]
 
-    x2 = x1 + largura
-    y2 = y1 + altura
-
-    ex1 = centro_x - raio
-    ey1 = centro_y - raio
-    ex2 = centro_x + raio
-    ey2 = centro_y + raio
-
-    interseccao = not (ex2 < x1 or ex1 > x2 or ey2 < y1 or ey1 > y2)
-
-    if interseccao:
-        print(dano)
-    else:
-        print(0)
+    print(resolve(magia, N, x0, y0, x0 + w, y0 + h, cx, cy))
