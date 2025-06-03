@@ -1,10 +1,7 @@
-import math
-
-def area_e_dano_da_magia(dicionario, magia, nivel):
+def raio_e_dano_da_magia(dicionario, magia, nivel):
     dano = dicionario[magia][0]
     raio = dicionario[magia][nivel]
-    area = int(math.pi * (raio ** 2))
-    return dano, area
+    return dano, raio
 
 casos = int(input())
 
@@ -19,5 +16,5 @@ for _ in range(casos):
     largura, altura, coord_x, coord_y = map(int, input().split())
     magia, nivel, centro_x, centro_y = input().split()
     nivel, centro_x, centro_y = int(nivel), int(centro_x), int(centro_y)
-    dano, area = area_e_dano_da_magia(magias, magia, nivel)
-    print(magias[magia][nivel])
+    dano, raio = raio_e_dano_da_magia(magias, magia, nivel)
+    
