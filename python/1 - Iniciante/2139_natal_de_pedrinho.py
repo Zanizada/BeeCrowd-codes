@@ -15,14 +15,15 @@ while True:
         for meses in range(1, mes+1):
             dias += dias_por_mes[meses]
 
-        if dias > 361:
-            dias_restantes = "Já passou!"
-        elif dias == 361:
+        if dias == 361:
             dias_restantes = "E natal!"
-        elif dias == 360:
-            dias_restantes = "E vespera de natal!"
+        elif dias < 361:
+            if dias == 360:
+                dias_restantes = "E vespera de natal!"
+            else:
+                dias_restantes = f"Faltam {366 - dias} dias para o natal!"
         else:
-            dias_restantes = f"Faltam {366 - dias} dias para o natal!"
+            dias_restantes = "Ja passou!"
 
         print(dias_restantes)
 
