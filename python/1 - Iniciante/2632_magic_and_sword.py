@@ -17,5 +17,7 @@ magias = {
 
 for _ in range(casos):
     largura, altura, coord_x, coord_y = map(int, input().split())
-    magia, nivel, centro_x, centro_y = input()
+    magia, nivel, centro_x, centro_y = input().split()
     nivel, centro_x, centro_y = int(nivel), int(centro_x), int(centro_y)
+    dano, area = area_e_dano_da_magia(magias, magia, nivel)
+    print(magias[magia][nivel])
