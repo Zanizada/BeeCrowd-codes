@@ -18,5 +18,7 @@ for _ in range(casos):
     nivel, centro_x, centro_y = int(nivel), int(centro_x), int(centro_y)
     dano, raio = raio_e_dano_da_magia(magias, magia, nivel)
     
-    area = largura * altura
-    coordenadas_ponto_esquerdo = [coord_x, coord_y]
+    coordenadas_inferior_esquerdo = [coord_x, coord_y]
+    coordenadas_inferior_direito = [coord_x + largura, coord_y]
+    coordenadas_superior_esquerdo = [coord_x, coord_y + altura]
+    coordenadas_superior_direito = [coord_x + largura, coord_y + altura]
