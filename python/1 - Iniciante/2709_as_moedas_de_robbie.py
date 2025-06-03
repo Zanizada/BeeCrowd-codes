@@ -1,3 +1,5 @@
+import math
+
 while True:
     try:
         qntd_moedas = int(input())
@@ -8,16 +10,19 @@ while True:
         salto = int(input())
 
         soma = 0
-        indice = 0
-        while indice < qntd_moedas:
+        indice = qntd_moedas - 1
+        while indice >= 0:
             soma += moedas[indice]
-            indice += salto
+            indice -= salto
 
         primo = True
-        for divisor in range(2, soma):
-            if soma % divisor == 0:
-                primo = False
-                break
+        if soma < 2:
+            primo = False
+        else:
+            for divisor in range(2, int(math.sqrt(soma)) + 1):
+                if soma % divisor == 0:
+                    primo = False
+                    break
 
         if primo == True:
             resultado = "You’re a coastal aircraft, Robbie, a large silver aircraft."
