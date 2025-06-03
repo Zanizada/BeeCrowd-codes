@@ -12,16 +12,18 @@ while True:
         casos = f"Caso #{caso}:"
         qtd_subsequencias = list(re.finditer(f"(?={re.escape(numero)})", sequencia))
         
-        if qtd_subsequencias != 0:
-            qtd_subsequencias_f = f"Qtd.Subsequencias: {qtd_subsequencias}"
-            subsequencias = list(len(re.findall(f"(?={re.escape(numero)})", sequencia)))
-            posicao = f"Pos: {subsequencias[-1].start()}"
+        if qtd_subsequencias:
+            qtd_subsequencias_f = f"Qtd.Subsequencias: {len(qtd_subsequencias)}"
+            posicao = f"Pos: {qtd_subsequencias[-1].start() + 1}"
         else:
             qtd_subsequencias_f = f"Nao existe subsequencia"
+            posicao = ""
         
         print(casos)
         print(qtd_subsequencias_f)
-        print(posicao, "\n") if qtd_subsequencias != 0 else print()
+        if posicao:
+            print(posicao)
+        print()
 
         caso += 1
 
