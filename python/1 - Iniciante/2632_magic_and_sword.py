@@ -13,24 +13,22 @@ magias = {
 }
 
 for _ in range(casos):
-    largura, altura, coord_x, coord_y = map(int, input().split())
+    largura, altura, x1, y1 = map(int, input().split())
     magia, nivel, centro_x, centro_y = input().split()
     nivel, centro_x, centro_y = int(nivel), int(centro_x), int(centro_y)
     dano, raio = raio_e_dano_da_magia(magias, magia, nivel)
-    
-    coordenadas_inferior_esquerdo = [coord_x, coord_y]
-    coordenadas_inferior_direito = [coord_x + largura, coord_y]
-    coordenadas_superior_esquerdo = [coord_x, coord_y + altura]
-    coordenadas_superior_direito = [coord_x + largura, coord_y + altura]
-    coordenadas = [coordenadas_inferior_esquerdo,
-                   coordenadas_inferior_direito,
-                   coordenadas_superior_esquerdo,
-                   coordenadas_superior_direito]
-    raio_explosao_meio = [centro_x, centro_y]
-    raio_explosao_cima = [centro_x + raio, centro_y + raio]
-    raio_explosao_baixo = [centro_x - raio, centro_y - raio]
-    raio_explosao = [raio_explosao_cima,
-                     raio_explosao_meio,
-                     raio_explosao_baixo]
 
-    if raio_explosao in 
+    x2 = x1 + largura
+    y2 = y1 + altura
+
+    ex1 = centro_x - raio
+    ey1 = centro_y - raio
+    ex2 = centro_x + raio
+    ey2 = centro_y + raio
+
+    interseccao = not (ex2 < x1 or ex1 > x2 or ey2 < y1 or ey1 > y2)
+
+    if interseccao:
+        print(dano)
+    else:
+        print(0)
