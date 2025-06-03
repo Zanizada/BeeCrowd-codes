@@ -11,19 +11,18 @@ while True:
         indice = 0
         while indice < qntd_moedas:
             soma += moedas[indice]
-            indice += 2
+            indice += salto
 
+        primo = True
         for divisor in range(2, soma):
-            if soma % divisor != 0:
-                primo = True
-            else:
+            if soma % divisor == 0:
                 primo = False
                 break
 
         if primo == True:
-            resultado = "You're a coastal aircraft, Robbie, a large silver aircraft."
+            resultado = "You’re a coastal aircraft, Robbie, a large silver aircraft."
         else:
-            resultado = "Bad boy! I'll hit you."
+            resultado = "Bad boy! I’ll hit you."
 
         print(resultado)
 
