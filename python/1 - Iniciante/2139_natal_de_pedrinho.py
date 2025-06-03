@@ -1,5 +1,3 @@
-natal = [12, 25]
-
 meses = {
     1: "janeiro",
     2: "fevereiro",
@@ -17,22 +15,26 @@ meses = {
 
 dias = {
     "janeiro": 31,
-    "fevereiro": 29,
-    "março": 31,
-    "abril": 30,
-    "maio": 31,
-    "junho": 30,
-    "julho": 31,
-    "agosto": 31,
-    "setembro": 30,
-    "outubro": 31,
-    "novembro": 30,
-    "dezembro": 31
+    "fevereiro": 60,
+    "março": 91,
+    "abril": 121,
+    "maio": 152,
+    "junho": 182,
+    "julho": 213,
+    "agosto": 244,
+    "setembro": 274,
+    "outubro": 305,
+    "novembro": 335,
+    "dezembro": 366
 }
 
+natal = False
 while True:
     try:
         mes, dia = map(int, input().split())
         
+        if meses[12] and dia == 25:
+            natal = True
+
     except EOFError:
         break
