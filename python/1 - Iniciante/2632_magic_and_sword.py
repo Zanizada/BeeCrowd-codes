@@ -22,3 +22,15 @@ for _ in range(casos):
     coordenadas_inferior_direito = [coord_x + largura, coord_y]
     coordenadas_superior_esquerdo = [coord_x, coord_y + altura]
     coordenadas_superior_direito = [coord_x + largura, coord_y + altura]
+    coordenadas = [coordenadas_inferior_esquerdo,
+                   coordenadas_inferior_direito,
+                   coordenadas_superior_esquerdo,
+                   coordenadas_superior_direito]
+    raio_explosao_meio = [centro_x, centro_y]
+    raio_explosao_cima = [centro_x + raio, centro_y + raio]
+    raio_explosao_baixo = [centro_x - raio, centro_y - raio]
+    raio_explosao = [raio_explosao_cima,
+                     raio_explosao_meio,
+                     raio_explosao_baixo]
+
+    if raio_explosao in 
