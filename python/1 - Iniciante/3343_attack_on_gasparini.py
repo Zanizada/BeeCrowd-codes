@@ -12,3 +12,4 @@ titas = []
 for tita in tamanho_titas:
     tita = tamanhos[tita]
     titas.append(tita)
+
