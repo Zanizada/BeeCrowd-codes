@@ -9,16 +9,15 @@ tamanhos = {
 }
 
 muralhas = 1
-muralha_restante = tamanho_muralhas
+muralha = tamanho_muralhas
 
 for tita in ordem_titas:
     tamanho_tita = tamanhos[tita]
 
-    if muralha_restante >= tamanho_tita:
-        muralha_restante -= tamanho_tita
-    else:
-        muralha_restante = tamanho_muralhas
-        muralha_restante -= tamanho_tita
+    while tamanho_tita > muralha:
+        muralha = tamanho_muralhas
         muralhas += 1
+    
+    muralha -= tamanho_tita
 
 print(muralhas)
