@@ -1,36 +1,29 @@
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
 
-function probabilidade(num1, num2) {
-    if (num1 <= 0) {
-        return 0.0;
+function probabilidade(num1, num2, num3, num4, memo) {
+    if (num1 <= 0) return 0.0;
+    if (num2 <= 0) return 1.0;
+
+    const key = `${num1},${num2}`;
+    if (memo.has(key)) return memo.get(key);
+
+    const p1_win_turn = num3 / 6;
+    const p2_win_turn = (6 - num3) / 6;
+
+    const p =
+        p1_win_turn * probabilidade(num1 + num4, num2 - num4, num3, num4, memo) +
+        p2_win_turn * probabilidade(num1 - num4, num2 + num4, num3, num4, memo);
+
+    memo.set(key, p);
+    return p;
     }
-    if (num2 <= 0) {
-        return 1.0;
-    }
-    if (num1, num2) {
-        
-    }
-}
 
 while (true) {
-    let EV1 = parseInt(lines[0]);
-    let EV2 = parseInt(lines[1]);
-    const AT = parseInt(lines[2]);
-    const D = parseInt(lines[3]);
+    const [EV1, EV2, AT, D] = lines.split(" ").map(Number);
+    if ((EV1 === 0) && (EV2 === 0) && (AT === 0) && (D === 0)) break;
 
-    if ((EV1 == 0) & (EV2 == 0) & (AT == 0) & (D == 0)) {
-        break
-    }
-
-
+    const memo = new Map();
+    const resultado = probabilidade(EV1, EV2, AT, D, memo) * 100;
+    console.log(resultado.toFixed(1));
 }
-
-/*
-dado de 6 lados
-6 = 100%
-1 = x
-6x = 100
-x = 100 / 6
-x = 16,66
-*/
